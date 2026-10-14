@@ -1,0 +1,5 @@
+body{width:300px;padding:16px;display:grid;gap:10px}
+.big{font-size:44px;font-weight:700;letter-spacing:1px;font-variant-numeric:tabular-nums;direction:ltr;text-align:center}
+#phase{text-align:center;margin-top:-8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.two .card b{font-size:20px}
+.on{color:#6fcf97}.off{color:var(--mu)}

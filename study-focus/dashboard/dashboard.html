@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Study Focus</title><link rel="stylesheet" href="../shared/ui.css"><link rel="stylesheet" href="dashboard.css"></head>
+<body>
+<header><b class="brand">🎯 Study Focus</b>
+<nav>
+  <button data-view="home" data-i18n>Dashboard</button><button data-view="blocking" data-i18n>Focus Blocking</button>
+  <button data-view="stats" data-i18n>Statistics</button><a href="../settings/settings.html" data-i18n>Settings</a><button data-view="privacy" data-i18n>Privacy</button>
+</nav><span id="chip" class="chip"></span></header>
+<main>
+<section id="v-home" class="view grid cols">
+  <div class="card timer">
+    <div class="row between"><h2 data-i18n>Pomodoro</h2>
+      <select id="preset"><option value="25" data-i18n>25 min study / 5 min break</option><option value="50" data-i18n>50 min study / 10 min break</option><option value="custom" data-i18n>Custom</option></select></div>
+    <div id="custom" class="row" hidden><label class="muted"><span data-i18n>Study (min)</span> <input type="number" min="1" data-k="study" style="width:80px"></label>
+      <label class="muted"><span data-i18n>Break (min)</span> <input type="number" min="1" data-k="brk" style="width:80px"></label></div>
+    <div id="time" class="big">25:00</div><div id="phase" class="muted center"></div>
+    <div class="bar"><i id="tbar" style="width:0"></i></div>
+    <div class="row center"><button id="start" class="btn primary"></button><button id="reset" class="btn" data-i18n>Reset</button><button id="quick" class="btn" data-i18n>Quick Focus</button></div>
+    <div class="row"><span class="muted" data-i18n>Current task</span><select id="cur" style="flex:1"></select></div>
+  </div>
+  <div class="grid">
+    <div class="card row between"><div><div class="muted" data-i18n>Pomodoros today</div><b id="hp" class="n">0</b></div><div><div class="muted" data-i18n>Study today</div><b id="hs" class="n">0m</b></div></div>
+    <div class="card"><div class="row between"><span data-i18n>Daily goal</span><span id="gtxt" class="muted"></span></div><div class="bar"><i id="gbar" style="width:0"></i></div></div>
+    <div class="card"><h2 data-i18n>Quick Notes</h2><textarea id="notes" data-ph="Write a quick note…"></textarea><div class="muted" data-i18n>Saved locally</div></div>
+  </div>
+  <div class="card span"><h2 data-i18n>Tasks</h2>
+    <div class="row"><input type="text" id="tt" data-ph="Add a task" style="flex:1;min-width:160px">
+      <select id="tp"><option value="high" data-i18n>High</option><option value="med" selected data-i18n>Medium</option><option value="low" data-i18n>Low</option></select>
+      <input type="number" id="tn" min="0" max="99" value="0" title="Sessions target" style="width:70px"><button id="ta" class="btn primary" data-i18n>Add</button></div>
+    <ul id="tasks"></ul></div>
+</section>
+<section id="v-blocking" class="view grid cols" hidden>
+  <div class="card"><h2 data-i18n>Short-video blocking</h2><p class="muted" data-i18n>Hide short videos on each platform. Long videos are never blocked.</p>
+    <label class="opt"><input type="checkbox" data-k="blocking.youtube"><span data-i18n>YouTube Shorts</span></label>
+    <label class="opt"><input type="checkbox" data-k="blocking.instagram"><span data-i18n>Instagram Reels</span></label>
+    <label class="opt"><input type="checkbox" data-k="blocking.facebook"><span data-i18n>Facebook Reels</span></label>
+    <label class="opt"><input type="checkbox" data-k="blocking.tiktok"><span data-i18n>TikTok</span></label><hr>
+    <label class="opt"><input type="checkbox" data-k="blockAlways"><span data-i18n>Also hide while not in Focus Mode</span></label></div>
+  <div class="card"><h2 data-i18n>Focus Mode</h2>
+    <div class="row"><span data-i18n>Focus duration</span>
+      <select id="fdur"><option value="25" data-i18n>25 minutes</option><option value="50" data-i18n>50 minutes</option><option value="90" data-i18n>90 minutes</option><option value="custom" data-i18n>Custom</option></select>
+      <input type="number" min="1" data-k="focusMin" id="fcustom" style="width:80px" hidden></div>
+    <label class="opt"><input type="checkbox" data-k="strict"><span data-i18n>Strict Mode (cannot be stopped)</span></label>
+    <button id="fstart" class="btn primary wide"></button><p id="fstat" class="muted"></p></div>
+  <div class="card span"><h2 data-i18n>Website Blocker</h2><p class="muted" data-i18n>One domain per line. Blocked only during Focus Mode.</p>
+    <textarea dir="ltr" data-k="blockedSites" data-list placeholder="reddit.com"></textarea></div>
+</section>
+<section id="v-stats" class="view" hidden>
+  <div class="cards" id="scards"></div>
+  <div class="card"><h2 data-i18n>Last 7 days</h2><div id="chart" class="chart"></div></div>
+  <div class="card streak"><h2>🔥 <span data-i18n>Study Streak</span></h2><div class="big small"><span id="sk">0</span> <span class="muted" data-i18n>days in a row</span></div><p id="skmsg"></p></div>
+</section>
+<section id="v-privacy" class="view card" hidden><h2 data-i18n>Privacy</h2>
+  <p data-i18n>Study Focus collects no personal data and sends nothing to any server.</p>
+  <p data-i18n>Everything (settings, tasks, notes, statistics) is stored locally on your device using Chrome Storage.</p>
+  <p data-i18n>The extension only reads page addresses to decide whether to block them, and never stores your browsing history.</p></section>
+</main><script src="../shared/core.js"></script><script src="dashboard.js"></script></body></html>

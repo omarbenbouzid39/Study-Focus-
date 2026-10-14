@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Study Focus",
+  "version": "1.0.0",
+  "description": "Pomodoro, Focus Mode and Shorts/Reels blocking for students.",
+  "minimum_chrome_version": "110",
+  "permissions": ["storage", "alarms", "notifications", "webNavigation"],
+  "background": { "service_worker": "background/service-worker.js" },
+  "action": {
+    "default_title": "Study Focus",
+    "default_popup": "popup/popup.html",
+    "default_icon": { "16": "assets/icons/icon16.png", "48": "assets/icons/icon48.png", "128": "assets/icons/icon128.png" }
+  },
+  "options_page": "settings/settings.html",
+  "icons": { "16": "assets/icons/icon16.png", "48": "assets/icons/icon48.png", "128": "assets/icons/icon128.png" },
+  "content_scripts": [
+    { "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"], "js": ["shared/core.js", "content/common.js", "content/youtube.js"], "run_at": "document_start" },
+    { "matches": ["https://www.instagram.com/*"], "js": ["shared/core.js", "content/common.js", "content/instagram.js"], "run_at": "document_start" },
+    { "matches": ["https://www.facebook.com/*", "https://m.facebook.com/*"], "js": ["shared/core.js", "content/common.js", "content/facebook.js"], "run_at": "document_start" },
+    { "matches": ["https://www.tiktok.com/*"], "js": ["shared/core.js", "content/common.js", "content/tiktok.js"], "run_at": "document_start" }
+  ]
+}

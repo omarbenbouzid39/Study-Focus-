@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Study Focus – Settings</title><link rel="stylesheet" href="../shared/ui.css"><link rel="stylesheet" href="settings.css"></head>
+<body><main>
+<h1 data-i18n>Settings</h1>
+<p id="lock" class="warn" hidden data-i18n>Settings are locked during a Strict focus session.</p>
+<section class="card"><h2 data-i18n>General</h2>
+  <div class="field"><span data-i18n>Language</span><select data-k="lang"><option value="ar">العربية</option><option value="en">English</option></select></div>
+  <div class="field"><span data-i18n>Theme</span><select data-k="theme"><option value="dark" data-i18n>Dark</option><option value="light" data-i18n>Light</option></select></div>
+  <div class="field"><span data-i18n>Daily goal (min)</span><input type="number" min="1" data-k="goalMin"></div>
+</section>
+<section class="card"><h2 data-i18n>Pomodoro</h2>
+  <div class="field"><span data-i18n>Study (min)</span><input type="number" min="1" data-k="study"></div>
+  <div class="field"><span data-i18n>Break (min)</span><input type="number" min="1" data-k="brk"></div>
+</section>
+<section class="card"><h2 data-i18n>Blocking</h2>
+  <label class="opt"><input type="checkbox" data-k="autoBlock"><span data-i18n>Block automatically with Pomodoro</span></label>
+  <label class="opt"><input type="checkbox" data-k="strict"><span data-i18n>Strict Mode</span></label>
+  <label class="opt"><input type="checkbox" data-k="allowOverride"><span data-i18n>Allow temporary override</span></label>
+  <div class="field"><span data-i18n>Override duration (min)</span><input type="number" min="1" data-k="bypassMinutes"></div>
+  <h3 data-i18n>Blocked websites (Focus Mode only)</h3><textarea dir="ltr" data-k="blockedSites" data-list placeholder="reddit.com"></textarea>
+  <h3 data-i18n>Excluded websites</h3><textarea dir="ltr" data-k="excludedSites" data-list placeholder="docs.google.com"></textarea>
+</section>
+<section class="card"><h2 data-i18n>Notifications</h2>
+  <label class="opt"><input type="checkbox" data-k="notif.end"><span data-i18n>Study session finished</span></label>
+  <label class="opt"><input type="checkbox" data-k="notif.breakEnd"><span data-i18n>Break finished</span></label>
+  <label class="opt"><input type="checkbox" data-k="notif.reminder"><span data-i18n>Hourly study reminder</span></label>
+  <label class="opt"><input type="checkbox" data-k="notif.comeback"><span data-i18n>Reminder to get back if paused</span></label>
+</section>
+<button id="wipe" class="btn" data-i18n>Reset all data</button>
+</main><script src="../shared/core.js"></script><script src="settings.js"></script></body></html>
